@@ -1,0 +1,5 @@
+FROM nginx:1.17
+
+COPY nginx/wordpress.conf /etc/nginx/conf.d/wordpress/conf
+
+CMD ["nginx", "-g", "daemon off;"]

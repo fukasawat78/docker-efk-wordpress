@@ -1,0 +1,52 @@
+version: '3.7'
+services:
+    nginx:
+        build:
+            context: ./
+            dockerfile: ./nginx/dockerfile
+        container_name: nginx
+        ports:
+            - "8081:80"
+        volumes:
+            - ./nginx/:/etc/nginx/conf.d/
+            - ./logs/nginx/:/var/log/nginx
+            - ./wordpress:/var/www/html
+        restart: always
+        environment:
+            TZ: Asia/Tokyo
+        depends_on:
+            - wordpress
+    wordpress:
+        image: wordpress:5.2.2-php7.3-fpm
+        container_name: wordpress
+        ports:
+            - "9000:9000"
+        volumes:
+            - ./wordpress:/var/www/html
+        environment:
+            WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+            WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+            WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+            WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+            TZ: Asia/Tokyo
+        links:
+            - mysql
+        restart: always
+    mysql:
+        image: mariadb:10.4.7
+        container_name: mariadb
+        volumes:
+            - ./mariadb/db-data:/var/lib/mysql
+            - ./initdb.d:/docker-entrypoint-initdb.d
+        ports:
+            - "3306:3306"
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+            TZ: Asia/Tokyo
+volumes:
+    nginx:
+    wordpress:
+    mysql:
