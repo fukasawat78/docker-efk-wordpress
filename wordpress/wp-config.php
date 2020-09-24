@@ -29,7 +29,7 @@ define( 'DB_USER', 'root');
 define( 'DB_PASSWORD', 'password');
 
 /** MySQL hostname */
-define( 'DB_HOST', 'mysql');
+define( 'DB_HOST', 'db');
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8');
@@ -46,14 +46,14 @@ define( 'DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         'eb23512dd3f8c81109b0c4870ab8d8358909131e');
-define( 'SECURE_AUTH_KEY',  'e19cfc0b77ae9ceec027deef9e37c8b6d05057b1');
-define( 'LOGGED_IN_KEY',    '3e4911ee9e2ca52607f5ca004e308829ad62bdcc');
-define( 'NONCE_KEY',        'ee434a110da110f8dfa1075588be21303a07405a');
-define( 'AUTH_SALT',        '5eb331b069cb66257e2bff4c1ca967b6348c338a');
-define( 'SECURE_AUTH_SALT', '65448ab63a48e1856acd0947b06fa29b64ec7b7c');
-define( 'LOGGED_IN_SALT',   '3e55ad1539b01da81531c693e557810e463a595f');
-define( 'NONCE_SALT',       'ab85621733d4597cd1513910f5c7e994f4166f66');
+define( 'AUTH_KEY',         '69661644872f629d3c322eef6c30aa6020e2fb3b');
+define( 'SECURE_AUTH_KEY',  '7d1ed305ad4a2dc1a79a8469b36a6338445701c9');
+define( 'LOGGED_IN_KEY',    'd534680e6cd316b606e41ab40e1da50a8807eb33');
+define( 'NONCE_KEY',        'b1dd8c7036e13fc4c27eb293eaa4f350c9659f6a');
+define( 'AUTH_SALT',        'e537a63753d5094cd1ad53298646dd067923acc3');
+define( 'SECURE_AUTH_SALT', 'c116d8cab178762e75b62dd2feea8a5b4f838385');
+define( 'LOGGED_IN_SALT',   '37d0c55f4fe04084a65d7b44556393bb27f28511');
+define( 'NONCE_SALT',       '4bbd3439aa42ed335af23ed7fd848ec85d25582f');
 
 /**#@-*/
 
