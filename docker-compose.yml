@@ -3,19 +3,20 @@ services:
     nginx:
         build:
             context: ./
-            dockerfile: ./nginx/dockerfile
+            dockerfile: ./nginx/Dockerfile
         container_name: nginx
         ports:
-            - "8081:80"
+            - "8081:8080"
         volumes:
             - ./nginx/:/etc/nginx/conf.d/
-            - ./logs/nginx/:/var/log/nginx
+            - ./nginx/log:/var/log/nginx
             - ./wordpress:/var/www/html
         restart: always
         environment:
             TZ: Asia/Tokyo
         depends_on:
             - wordpress
+            - fluentd
     wordpress:
         image: wordpress:5.2.2-php7.3-fpm
         container_name: wordpress
@@ -46,7 +47,43 @@ services:
             MYSQL_USER: ${MYSQL_USER}
             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
             TZ: Asia/Tokyo
+    fluentd:
+        build: ./fluentd
+        volumes:
+            - ./fluentd/config:/fluentd/etc
+            - ./nginx/log:/var/log/nginx
+        links:
+            - elasticsearch
+        ports:
+            - "24224:24224"
+        depends_on:
+            - elasticsearch
+
+    elasticsearch:
+        build: elasticsearch
+        environment:
+            - discovery.type=single-node
+            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+        ports:
+            - "9200:9200"
+        ulimits:
+            memlock:
+                soft: -1
+                hard: -1
+        volumes:
+            - ./elasticsearch/data:/usr/share/elasticsearch/data
+
+    kibana:
+        build: kibana
+        ports:
+            - "5601:5601"
+        links:
+            - elasticsearch:elasticsearch
+
 volumes:
     nginx:
     wordpress:
+    fluentd:
+    elasticsearch:
+    kibana:
     mysql:
