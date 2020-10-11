@@ -1,6 +1,6 @@
-# docker-wordpress
+# Docker EFK Wordpress
 
-## Docker立ち上げ
+## Docker
 ```
 $ docker-compose up -d
 ```
