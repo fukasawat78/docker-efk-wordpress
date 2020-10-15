@@ -1,10 +1,9 @@
 # Docker EFK Wordpress
-You can access following ports:
-wordpress -> localhost:8000
-kibana -> localhost:5635
-index pattern -> nginx*
 
 ## Usage
-```
-$ docker-compose up -d
-```
+Try "docker-compose up -d" to run docker.
+
+Then, you can access following ports:
+* wordpress -> localhost:9000
+* kibana -> localhost:5601
+* index pattern -> nginx*
