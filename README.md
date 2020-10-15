@@ -1,4 +1,4 @@
-# Docker EFK Wordpress
+# Docker Wordpress w/ efk stack
 
 ## Usage
 Try "docker-compose up -d" to run docker.
