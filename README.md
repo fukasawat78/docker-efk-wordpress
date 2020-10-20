@@ -1,5 +1,16 @@
 # Docker Wordpress w/ efk stack
 
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+* [Wordpress with efk-stack](#pytorch-template-project)
+	* [Usage](#how-to-run)
+	* [Organization](#organization)
+    * [Acknowledgements](#acknowledgements)
+
+<!-- /code_chunk_output -->
+
 ## Usage
 Try "docker-compose up -d" to run.
 
