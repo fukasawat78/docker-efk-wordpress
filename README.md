@@ -10,7 +10,8 @@ Then, you can access following ports:
 ## Organization
 
   ```
-  python-data-science-notebooks/
+  docker-efk-wordpress/
+    │
     ├── Makefile            <- Makefile with commands like `make data` or `make train`
     ├── README.md           <- The top-level README for developers using this project.
     │
