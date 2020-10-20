@@ -12,7 +12,7 @@
 <!-- /code_chunk_output -->
 
 ## Usage
-Try "docker-compose up -d" to run.
+Try `docker-compose up -d` to run.
 
 Then, you can access following ports:
 * wordpress -> localhost:9000
